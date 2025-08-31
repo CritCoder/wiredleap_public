@@ -4,7 +4,6 @@ import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Typography } from "@/components/ui/typography"
 import { Menu } from "lucide-react"
 import Link from "next/link" // Import Link for client-side navigation
 
@@ -29,9 +28,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <Typography variant="h4" className="text-foreground font-bold tracking-tight">
-              Wiredleap
-            </Typography>
+            <span className="text-foreground text-xl font-semibold">Wiredleap</span>
           </div>
           <nav className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
@@ -39,7 +36,7 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleScroll(e, item.href)} // Add onClick handler
-                className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors duration-200"
+                className="text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors"
               >
                 {item.name}
               </Link>
@@ -48,7 +45,7 @@ export function Header() {
         </div>
         <div className="flex items-center gap-4">
           <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="hidden md:block">
-            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-semibold shadow-sm transition-all duration-200">
+            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
               Try for Free
             </Button>
           </Link>
@@ -69,13 +66,13 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleScroll(e, item.href)} // Add onClick handler
-                    className="text-muted-foreground hover:text-foreground justify-start text-lg py-2 font-medium transition-colors duration-200"
+                    className="text-[#888888] hover:text-foreground justify-start text-lg py-2"
                   >
                     {item.name}
                   </Link>
                 ))}
                 <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="w-full mt-4">
-                  <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-semibold shadow-sm transition-all duration-200">
+                  <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
                     Try for Free
                   </Button>
                 </Link>
