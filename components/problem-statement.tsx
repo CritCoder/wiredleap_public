@@ -1,29 +1,60 @@
-import { Card } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
+import { AlertTriangle, Shield, Target } from "lucide-react"
 
 export function ProblemStatement() {
   return (
-    <section className="px-6 py-16">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">The Information Age Has Reached Its Limit</h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-balance">
-          We're drowning in data but starving for intelligence. Traditional systems can only see what happened, not
-          what's about to happen.
-        </p>
-      </div>
+    <section className="w-full py-20 bg-muted/30">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center space-y-8 mb-16">
+          <h2 className="text-3xl md:text-4xl font-alliance2 font-light">
+            The Intelligence Challenge
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            In today's complex threat landscape, organizations struggle to connect the dots across 
+            vast amounts of data, leading to missed threats and delayed responses.
+          </p>
+        </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        <Card className="p-6 text-center">
-          <div className="text-4xl font-bold text-red-500 mb-2">2.5 Quintillion</div>
-          <div className="text-sm text-muted-foreground">Bytes of data created daily</div>
-        </Card>
-        <Card className="p-6 text-center">
-          <div className="text-4xl font-bold text-orange-500 mb-2">90%</div>
-          <div className="text-sm text-muted-foreground">Of data goes unanalyzed</div>
-        </Card>
-        <Card className="p-6 text-center">
-          <div className="text-4xl font-bold text-yellow-500 mb-2">Minutes</div>
-          <div className="text-sm text-muted-foreground">Response time to critical events</div>
-        </Card>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="border border-border/50">
+            <CardContent className="p-8 text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <AlertTriangle className="w-8 h-8 text-red-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Threat Detection Gaps</h3>
+              <p className="text-muted-foreground">
+                Critical threats slip through the cracks when data sources aren't properly connected 
+                and analyzed in real-time.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-border/50">
+            <CardContent className="p-8 text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <Target className="w-8 h-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Slow Response Times</h3>
+              <p className="text-muted-foreground">
+                Manual analysis and disconnected systems create delays that can mean the difference 
+                between prevention and disaster.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-border/50">
+            <CardContent className="p-8 text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Data Silos</h3>
+              <p className="text-muted-foreground">
+                Valuable intelligence is trapped in isolated systems, preventing comprehensive 
+                threat assessment and strategic planning.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   )

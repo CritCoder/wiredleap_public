@@ -1,91 +1,126 @@
-import AiCodeReviews from "./bento/ai-code-reviews"
-import RealtimeCodingPreviews from "./bento/real-time-previews"
-import OneClickIntegrationsIllustration from "./bento/one-click-integrations-illustration"
-import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration" // Updated import
-import EasyDeployment from "./bento/easy-deployment"
-import ParallelCodingAgents from "./bento/parallel-agents" // Updated import
-
-const BentoCard = ({ title, description, Component }) => (
-  <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative">
-    {/* Background with blur effect */}
-    <div
-      className="absolute inset-0 rounded-2xl"
-      style={{
-        background: "rgba(231, 236, 235, 0.08)",
-        backdropFilter: "blur(4px)",
-        WebkitBackdropFilter: "blur(4px)",
-      }}
-    />
-    {/* Additional subtle gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
-
-    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-2 relative z-10">
-      <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-        <p className="self-stretch text-foreground text-lg font-normal leading-7">
-          {title} <br />
-          <span className="text-muted-foreground">{description}</span>
-        </p>
-      </div>
-    </div>
-    <div className="self-stretch h-72 relative -mt-0.5 z-10">
-      <Component />
-    </div>
-  </div>
-)
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Brain, Database, Eye, Globe, Shield, TrendingUp } from "lucide-react"
 
 export function BentoSection() {
-  const cards = [
-    {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
-      Component: AiCodeReviews,
-    },
-    {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
-      Component: RealtimeCodingPreviews,
-    },
-    {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
-      Component: OneClickIntegrationsIllustration,
-    },
-    {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
-    },
-    {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
-      Component: ParallelCodingAgents, // Updated component
-    },
-    {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
-      Component: EasyDeployment,
-    },
-  ]
-
   return (
-    <section className="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
-      <div className="w-full py-8 md:py-16 relative flex flex-col justify-start items-start gap-6">
-        <div className="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
-        <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
-          <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-              Empower Your Workflow with AI
-            </h2>
-            <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
-            </p>
-          </div>
+    <section className="w-full py-20 bg-background">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center space-y-8 mb-16">
+          <h2 className="text-3xl md:text-4xl font-alliance2 font-light">
+            Advanced Intelligence Platform
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Wiredleap combines cutting-edge AI with comprehensive data integration to deliver 
+            actionable intelligence for enterprise security and operations.
+          </p>
         </div>
-        <div className="self-stretch grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 z-10">
-          {cards.map((card) => (
-            <BentoCard key={card.title} {...card} />
-          ))}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Signal Intelligence Engine */}
+          <Card className="border border-border/50 lg:col-span-2">
+            <CardContent className="p-8">
+              <div className="flex items-start justify-between mb-6">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-blue-600" />
+                </div>
+                <Badge variant="secondary">Core Feature</Badge>
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Signal Intelligence Engine</h3>
+              <p className="text-muted-foreground mb-6">
+                Advanced pattern recognition and anomaly detection across multiple data streams, 
+                providing real-time threat assessment and predictive analytics.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Pattern Recognition</Badge>
+                <Badge variant="outline">Anomaly Detection</Badge>
+                <Badge variant="outline">Predictive Analytics</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Real-time Dashboards */}
+          <Card className="border border-border/50">
+            <CardContent className="p-8">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                <TrendingUp className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-4">Live Intelligence Dashboards</h3>
+              <p className="text-muted-foreground">
+                Real-time monitoring and visualization of threats, patterns, and operational metrics.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Data Integration */}
+          <Card className="border border-border/50">
+            <CardContent className="p-8">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <Database className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-4">Multi-Source Integration</h3>
+              <p className="text-muted-foreground">
+                Seamlessly connect and analyze data from internal systems, external feeds, and open sources.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Threat Detection */}
+          <Card className="border border-border/50 lg:col-span-2">
+            <CardContent className="p-8">
+              <div className="flex items-start justify-between mb-6">
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-red-600" />
+                </div>
+                <Badge variant="secondary">Advanced</Badge>
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Proactive Threat Detection</h3>
+              <p className="text-muted-foreground mb-6">
+                AI-powered threat hunting and early warning systems that identify risks before they materialize, 
+                enabling proactive response and mitigation strategies.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Threat Hunting</Badge>
+                <Badge variant="outline">Early Warning</Badge>
+                <Badge variant="outline">Risk Assessment</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Global Intelligence */}
+          <Card className="border border-border/50">
+            <CardContent className="p-8">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                <Globe className="w-6 h-6 text-orange-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-4">Global Intelligence Network</h3>
+              <p className="text-muted-foreground">
+                Access to worldwide threat intelligence and geopolitical analysis for comprehensive risk assessment.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Visual Intelligence - Now spans 2 columns */}
+          <Card className="border border-border/50 lg:col-span-2">
+            <CardContent className="p-8">
+              <div className="flex items-start justify-between mb-6">
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                  <Eye className="w-6 h-6 text-indigo-600" />
+                </div>
+                <Badge variant="secondary">Advanced</Badge>
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Visual Intelligence</h3>
+              <p className="text-muted-foreground mb-6">
+                Advanced image and video analysis for surveillance, monitoring, and threat identification. 
+                Our AI-powered visual recognition systems can detect patterns, objects, and anomalies in real-time.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Image Analysis</Badge>
+                <Badge variant="outline">Video Processing</Badge>
+                <Badge variant="outline">Object Detection</Badge>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

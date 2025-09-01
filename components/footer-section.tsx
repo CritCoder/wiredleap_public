@@ -1,91 +1,148 @@
 "use client"
 
 import { Twitter, Github, Linkedin } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
 
 export function FooterSection() {
   return (
-    <footer className="w-full max-w-[1320px] mx-auto px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px]">
-      {/* Left Section: Logo, Description, Social Links */}
-      <div className="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
-        <div className="flex gap-3 items-stretch justify-center">
-          <div className="text-center text-foreground text-xl font-semibold leading-4">Wiredleap</div>
-        </div>
-        <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">Coding made effortless</p>
-        <div className="flex justify-start items-start gap-3">
-          <a href="#" aria-label="Twitter" className="w-4 h-4 flex items-center justify-center">
-            <Twitter className="w-full h-full text-muted-foreground" />
-          </a>
-          <a href="#" aria-label="GitHub" className="w-4 h-4 flex items-center justify-center">
-            <Github className="w-full h-full text-muted-foreground" />
-          </a>
-          <a href="#" aria-label="LinkedIn" className="w-4 h-4 flex items-center justify-center">
-            <Linkedin className="w-full h-full text-muted-foreground" />
-          </a>
-        </div>
-      </div>
-      {/* Right Section: Product, Company, Resources */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 p-4 md:p-8 w-full md:w-auto">
-        <div className="flex flex-col justify-start items-start gap-3">
-          <h3 className="text-muted-foreground text-sm font-medium leading-5">Product</h3>
-          <div className="flex flex-col justify-end items-start gap-2">
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Features
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Pricing
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Integrations
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Real-time Previews
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Multi-Agent Coding
-            </a>
+    <>
+      {/* Separator above footer */}
+      <Separator className="w-full bg-border/50" />
+      
+      <footer className="w-full bg-background">
+        {/* Main Footer Content */}
+        <div className="max-w-[1320px] mx-auto px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px]">
+          {/* Left Section: Logo, Description, Social Links */}
+          <div className="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
+            <div className="flex gap-3 items-stretch justify-center">
+              <div className="text-center text-foreground text-xl font-semibold leading-4">Wiredleap</div>
+            </div>
+            <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">
+              Advanced AI-powered intelligence solutions for enterprise operations
+            </p>
+            <div className="flex justify-start items-start gap-3">
+              <div className="w-4 h-4 flex items-center justify-center">
+                <Twitter className="w-full h-full text-muted-foreground" />
+              </div>
+              <div className="w-4 h-4 flex items-center justify-center">
+                <Github className="w-full h-full text-muted-foreground" />
+              </div>
+              <div className="w-4 h-4 flex items-center justify-center">
+                <Linkedin className="w-full h-full text-muted-foreground" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Section: Platform, Company, Resources */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 p-4 md:p-8 w-full md:w-auto">
+            <div className="flex flex-col justify-start items-start gap-3">
+              <h3 className="text-muted-foreground text-sm font-medium leading-5">Platform</h3>
+              <div className="flex flex-col justify-end items-start gap-2">
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Signal Intelligence
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Threat Detection
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Real-time Analytics
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  AI-Powered Insights
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Enterprise Security
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col justify-start items-start gap-3">
+              <h3 className="text-muted-foreground text-sm font-medium leading-5">Company</h3>
+              <div className="flex flex-col justify-center items-start gap-2">
+                <span className="text-foreground text-sm font-normal leading-5">
+                  About us
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Our team
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Careers
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Contact
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Press
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col justify-start items-start gap-3">
+              <h3 className="text-muted-foreground text-sm font-medium leading-5">Resources</h3>
+              <div className="flex flex-col justify-center items-start gap-2">
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Documentation
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  API Reference
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Support
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Community
+                </span>
+                <span className="text-foreground text-sm font-normal leading-5">
+                  Status
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col justify-start items-start gap-3">
-          <h3 className="text-muted-foreground text-sm font-medium leading-5">Company</h3>
-          <div className="flex flex-col justify-center items-start gap-2">
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              About us
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Our team
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Careers
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Brand
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Contact
-            </a>
+        
+        {/* Legal Footer Section */}
+        <div className="border-t border-border/50 bg-muted/30">
+          <div className="max-w-[1320px] mx-auto px-5 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              {/* Copyright */}
+              <div className="text-xs text-muted-foreground">
+                © 2025 Wiredleap Technologies, Inc. All rights reserved.
+              </div>
+              
+              {/* Legal Links */}
+              <div className="flex flex-wrap justify-center md:justify-end items-center gap-6 text-xs text-muted-foreground">
+                <span className="cursor-pointer hover:text-foreground transition-colors">
+                  Privacy Policy
+                </span>
+                <span className="cursor-pointer hover:text-foreground transition-colors">
+                  Terms of Service
+                </span>
+                <span className="cursor-pointer hover:text-foreground transition-colors">
+                  Cookie Policy
+                </span>
+                <span className="cursor-pointer hover:text-foreground transition-colors">
+                  Data Processing Agreement
+                </span>
+                <span className="cursor-pointer hover:text-foreground transition-colors">
+                  Security
+                </span>
+                <span className="cursor-pointer hover:text-foreground transition-colors">
+                  Compliance
+                </span>
+              </div>
+            </div>
+            
+            {/* Additional Legal Information */}
+            <div className="mt-4 text-xs text-muted-foreground/70 leading-relaxed">
+              <p className="text-center md:text-left">
+                Wiredleap is a registered trademark of Wiredleap Technologies, Inc. 
+                This platform is designed for authorized government and enterprise use only. 
+                All data processing complies with SOC 2 Type II, ISO 27001, and FedRAMP standards. 
+                For security inquiries, contact security@wiredleap.com. 
+                This service is not intended for personal or unauthorized use.
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col justify-start items-start gap-3">
-          <h3 className="text-muted-foreground text-sm font-medium leading-5">Resources</h3>
-          <div className="flex flex-col justify-center items-start gap-2">
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Terms of use
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              API Reference
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Documentation
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Community
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Support
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   )
 }
