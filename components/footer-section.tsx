@@ -109,24 +109,24 @@ export function FooterSection() {
               
               {/* Legal Links */}
               <div className="flex flex-wrap justify-center md:justify-end items-center gap-6 text-xs text-muted-foreground">
-                <span className="cursor-pointer hover:text-foreground transition-colors">
+                <a href="/privacy" className="cursor-pointer hover:text-foreground transition-colors">
                   Privacy Policy
-                </span>
-                <span className="cursor-pointer hover:text-foreground transition-colors">
+                </a>
+                <a href="/terms" className="cursor-pointer hover:text-foreground transition-colors">
                   Terms of Service
-                </span>
-                <span className="cursor-pointer hover:text-foreground transition-colors">
+                </a>
+                <a href="/cookies" className="cursor-pointer hover:text-foreground transition-colors">
                   Cookie Policy
-                </span>
-                <span className="cursor-pointer hover:text-foreground transition-colors">
+                </a>
+                <a href="/dpa" className="cursor-pointer hover:text-foreground transition-colors">
                   Data Processing Agreement
-                </span>
-                <span className="cursor-pointer hover:text-foreground transition-colors">
+                </a>
+                <a href="/security" className="cursor-pointer hover:text-foreground transition-colors">
                   Security
-                </span>
-                <span className="cursor-pointer hover:text-foreground transition-colors">
+                </a>
+                <a href="/compliance" className="cursor-pointer hover:text-foreground transition-colors">
                   Compliance
-                </span>
+                </a>
               </div>
             </div>
             

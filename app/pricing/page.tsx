@@ -1,3 +1,4 @@
+/*
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 import { Check } from "lucide-react"
@@ -63,7 +64,6 @@ export default function PricingPage() {
       <Header />
       
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* Hero Section */}
         <section className="text-center mb-16 pt-20">
           <h1 className="text-4xl md:text-6xl font-bold text-black mb-6">
             Simple, Transparent Pricing
@@ -73,7 +73,6 @@ export default function PricingPage() {
           </p>
         </section>
 
-        {/* Pricing Cards */}
         <section className="mb-16">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
@@ -127,7 +126,6 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-semibold text-black text-center mb-8">Frequently Asked Questions</h2>
           <div className="max-w-4xl mx-auto space-y-6">
@@ -158,7 +156,6 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Enterprise CTA */}
         <section className="text-center">
           <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
             <h2 className="text-3xl font-semibold text-black mb-4">Need Enterprise Features?</h2>
@@ -178,6 +175,19 @@ export default function PricingPage() {
       </main>
 
       <FooterSection />
+    </div>
+  )
+}
+*/
+
+// Temporary placeholder - pricing page commented out
+export default function PricingPage() {
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold text-foreground mb-4">Pricing Page</h1>
+        <p className="text-muted-foreground">This page has been temporarily disabled.</p>
+      </div>
     </div>
   )
 }

@@ -45,16 +45,40 @@ export default function FeaturesPage() {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main>
         {/* Hero Section */}
-        <section className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Powerful Features
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Discover how Wiredleap's AI-powered tools can transform your development workflow and boost your productivity.
-          </p>
+        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-black/40 z-5" />
+          <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
+          
+          {/* Feature-themed animated elements */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 w-20 h-20 border-2 border-cyan-400 rounded-lg animate-spin" style={{animationDuration: '8s'}}></div>
+            <div className="absolute top-1/3 right-20 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border-2 border-purple-400 rounded-full animate-ping" style={{animationDelay: '2s', animationDuration: '4s'}}></div>
+            <div className="absolute top-1/2 right-1/3 w-12 h-12 bg-gradient-to-br from-green-500 to-cyan-600 rounded-lg animate-bounce" style={{animationDelay: '0.5s'}}></div>
+          </div>
+          
+          {/* Floating feature icons */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-16 right-10 text-4xl animate-float">⚡</div>
+            <div className="absolute bottom-20 left-16 text-3xl animate-float" style={{animationDelay: '1.5s'}}>🚀</div>
+            <div className="absolute top-1/2 left-10 text-3xl animate-float" style={{animationDelay: '0.8s'}}>🔍</div>
+            <div className="absolute bottom-1/4 right-20 text-3xl animate-float" style={{animationDelay: '2.2s'}}>🌐</div>
+          </div>
+          
+          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Powerful</span> Features
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
+              Discover how Wiredleap's AI-powered tools can transform your development workflow and boost your productivity.
+            </p>
+          </div>
         </section>
+        
+        <div className="max-w-7xl mx-auto px-6 py-16">
 
         {/* Features Grid */}
         <section className="mb-16">
@@ -131,18 +155,19 @@ export default function FeaturesPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="text-center">
-          <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
-            <h2 className="text-3xl font-semibold text-foreground mb-4">Ready to Get Started?</h2>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Join thousands of developers who are already using Wiredleap to build better software faster.
-            </p>
-            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors">
-              Start Free Trial
-            </button>
-          </div>
-        </section>
+          {/* CTA Section */}
+          <section className="text-center">
+            <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
+              <h2 className="text-3xl font-semibold text-foreground mb-4">Ready to Get Started?</h2>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Join thousands of developers who are already using Wiredleap to build better software faster.
+              </p>
+              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                Start Free Trial
+              </button>
+            </div>
+          </section>
+        </div>
       </main>
 
       <FooterSection />

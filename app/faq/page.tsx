@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 import { useState } from "react"

@@ -30,7 +30,7 @@ function AbstractShape() {
 
   return (
     <group ref={meshRef}>
-      <primitive object={clonedScene} scale={1.2} position={[0, 0, 0]} />
+      <primitive object={clonedScene} scale={1.44} position={[0, 0, 0]} />
     </group>
   )
 }
@@ -74,7 +74,7 @@ export function ThreeDModel() {
 
   // Memoize canvas configuration for better performance
   const canvasProps = useMemo(() => ({
-    camera: { position: [0, 0, 4] as [number, number, number], fov: 50 },
+    camera: { position: [0, 0, 5] as [number, number, number], fov: 50 },
     style: { background: 'transparent' },
     gl: { 
       alpha: true, 

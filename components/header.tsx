@@ -13,11 +13,10 @@ import {
 import { Menu } from "lucide-react"
 
 const navItems = [
-  { name: "Platform", href: "#platform" },
-  { name: "Solutions", href: "#solutions" },
-  { name: "Technology", href: "#technology" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Features", href: "/features" },
+  { name: "Docs", href: "/docs" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export function Header() {

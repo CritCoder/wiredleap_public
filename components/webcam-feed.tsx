@@ -13,7 +13,27 @@ export function WebcamFeed() {
   const [error, setError] = useState<string>('')
 
   const requestWebcamAccess = async () => {
+    console.log('Requesting webcam access...')
+    console.log('Browser:', navigator.userAgent)
+    console.log('Protocol:', window.location.protocol)
+    
+    // Check if we're on HTTPS (required for getUserMedia)
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+      setError('Camera access requires HTTPS. Please use a secure connection.')
+      setPermissionState('error')
+      return
+    }
+    
+    // Check if getUserMedia is supported
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      console.error('getUserMedia not supported')
+      setError('Camera access not supported in this browser. Try Chrome, Firefox, or Safari.')
+      setPermissionState('error')
+      return
+    }
+    
     try {
+      console.log('Calling getUserMedia...')
       const mediaStream = await navigator.mediaDevices.getUserMedia({ 
         video: { 
           width: { ideal: 640 },
@@ -22,6 +42,7 @@ export function WebcamFeed() {
         } 
       })
       
+      console.log('Webcam access granted!', mediaStream)
       setStream(mediaStream)
       setPermissionState('granted')
       
@@ -30,10 +51,23 @@ export function WebcamFeed() {
       }
     } catch (err) {
       console.error('Webcam access denied:', err)
-      setPermissionState('denied')
-      if (err instanceof Error) {
-        setError(err.message)
+      console.error('Error name:', err.name)
+      console.error('Error message:', err.message)
+      
+      // Handle specific error types
+      if (err.name === 'NotAllowedError') {
+        setError('Camera access denied. Please check: 1) Arc browser settings 2) macOS System Preferences > Security & Privacy > Camera 3) Try refreshing the page')
+      } else if (err.name === 'NotFoundError') {
+        setError('No camera found. Please connect a camera and try again.')
+      } else if (err.name === 'NotSupportedError') {
+        setError('Camera not supported in Arc browser. Try Chrome, Firefox, or Safari.')
+      } else if (err.name === 'SecurityError') {
+        setError('Security error. Please ensure you\'re using HTTPS or localhost.')
+      } else {
+        setError(`Camera access error: ${err.message}`)
       }
+      
+      setPermissionState('denied')
     }
   }
 
@@ -48,41 +82,18 @@ export function WebcamFeed() {
 
   if (permissionState === 'requesting') {
     return (
-      <div className="w-full h-full bg-black/40 backdrop-blur-xl rounded-xl flex flex-col items-center justify-center p-4 border border-white/10">
-        {/* Surveillance-style header */}
-        <div className="absolute top-2 left-2 flex items-center gap-2">
-          <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
-          <span className="text-xs text-white/60 font-mono">SURVEILLANCE ACTIVE</span>
-        </div>
-        
-        {/* Creative permission request */}
-        <div className="text-center space-y-4">
-          <div className="relative">
-            <Camera className="w-8 h-8 text-white mx-auto mb-2" />
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-          </div>
-          
-          <div className="space-y-2">
-            <h3 className="text-sm font-semibold text-white">🔍 Subject Detection Required</h3>
-            <p className="text-xs text-white/80 leading-relaxed max-w-32">
-              Enable visual monitoring to experience our advanced surveillance technology
-            </p>
-          </div>
-          
-          <Button 
-            onClick={requestWebcamAccess}
-            size="sm"
-            className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white text-xs px-3 py-2 rounded-lg transition-all duration-300 border border-white/20"
-          >
-            <Shield className="w-3 h-3 mr-1" />
-            Authorize Monitoring
-          </Button>
-          
-          <div className="flex items-center justify-center gap-1 text-xs text-white/40">
-            <Lock className="w-3 h-3" />
-            <span>Secure & Private</span>
-          </div>
-        </div>
+      <div className="w-full h-full bg-black/40 backdrop-blur-xl rounded-xl flex flex-col items-center justify-center p-6 border border-white/10">
+        <Button 
+          onClick={() => {
+            console.log('Button clicked!')
+            requestWebcamAccess()
+          }}
+          size="lg"
+          className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-lg transition-all duration-300 border border-white/20"
+        >
+          <Camera className="w-4 h-4 mr-2" />
+          Enable Camera
+        </Button>
       </div>
     )
   }
@@ -90,27 +101,32 @@ export function WebcamFeed() {
   if (permissionState === 'denied') {
     return (
       <div className="w-full h-full bg-black/40 backdrop-blur-xl rounded-xl flex flex-col items-center justify-center p-4 border border-white/10">
-        <div className="absolute top-2 left-2 flex items-center gap-2">
-          <div className="w-2 h-2 bg-white/40 rounded-full animate-pulse"></div>
-          <span className="text-xs text-white/40 font-mono">ACCESS DENIED</span>
-        </div>
-        
         <div className="text-center space-y-3">
           <AlertTriangle className="w-6 h-6 text-white/60 mx-auto" />
           <div className="space-y-1">
-            <h3 className="text-xs font-semibold text-white">Monitoring Disabled</h3>
-            <p className="text-xs text-white/70 leading-relaxed max-w-28">
-              Camera access required for surveillance demo
+            <h3 className="text-sm font-semibold text-white">Camera Access Required</h3>
+            <p className="text-xs text-white/70 leading-relaxed max-w-48">
+              {error || 'Camera access required for demo'}
             </p>
           </div>
-          <Button 
-            onClick={requestWebcamAccess}
-            size="sm" 
-            variant="outline"
-            className="border-white/20 text-white/80 hover:bg-white/10 text-xs px-3 py-1 backdrop-blur-sm"
-          >
-            Retry Access
-          </Button>
+          <div className="flex gap-2 justify-center">
+            <Button 
+              onClick={requestWebcamAccess}
+              size="sm" 
+              variant="outline"
+              className="border-white/20 text-white/80 hover:bg-white/10 text-xs px-3 py-1 backdrop-blur-sm"
+            >
+              Try Again
+            </Button>
+            <Button 
+              onClick={() => setPermissionState('granted')}
+              size="sm" 
+              variant="outline"
+              className="border-white/20 text-white/80 hover:bg-white/10 text-xs px-3 py-1 backdrop-blur-sm"
+            >
+              Demo Mode
+            </Button>
+          </div>
         </div>
       </div>
     )

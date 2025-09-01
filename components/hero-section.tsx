@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { Component as AnimatedBackground } from "@/components/ui/raycast-animated-background"
 import { ThreeDModel } from "@/components/3d-model"
 import { CCTVModel } from "@/components/cctv-model"
-import { WebcamFeed } from "@/components/webcam-feed"
+
 import { Suspense } from "react"
 
 const transitionVariants = {
@@ -96,9 +96,12 @@ export function HeroSection() {
                             {/* Status indicator */}
                             <div className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-lg shadow-red-500/50"></div>
                             
-                            {/* Live Webcam Feed */}
-                            <div className="relative w-full h-full rounded-xl overflow-hidden">
-                                <WebcamFeed />
+                            {/* Placeholder content */}
+                            <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                                <div className="text-center">
+                                    <div className="text-2xl mb-1">📹</div>
+                                    <div className="text-xs text-white/60">Monitor</div>
+                                </div>
                             </div>
                             
                             {/* Label */}
@@ -138,17 +141,17 @@ export function HeroSection() {
                             },
                         }}>
                         <div className="space-y-3">
-                            <div className="flex items-center gap-3 bg-green-500/10 backdrop-blur-xl rounded-lg border border-green-500/20 px-4 py-2 shadow-lg">
-                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                <span className="text-xs text-green-400 font-medium">System Active</span>
+                            <div className="flex items-center gap-3 bg-black/40 backdrop-blur-xl rounded-lg border border-gray-700/50 px-4 py-2 shadow-lg">
+                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                                <span className="text-xs text-gray-300 font-medium">System Active</span>
                             </div>
-                            <div className="flex items-center gap-3 bg-blue-500/10 backdrop-blur-xl rounded-lg border border-blue-500/20 px-4 py-2 shadow-lg">
-                                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                                <span className="text-xs text-blue-400 font-medium">AI Monitoring</span>
+                            <div className="flex items-center gap-3 bg-black/40 backdrop-blur-xl rounded-lg border border-gray-700/50 px-4 py-2 shadow-lg">
+                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                                <span className="text-xs text-gray-300 font-medium">AI Monitoring</span>
                             </div>
-                            <div className="flex items-center gap-3 bg-orange-500/10 backdrop-blur-xl rounded-lg border border-orange-500/20 px-4 py-2 shadow-lg">
-                                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                                <span className="text-xs text-orange-400 font-medium">24/7 Recording</span>
+                            <div className="flex items-center gap-3 bg-black/40 backdrop-blur-xl rounded-lg border border-gray-700/50 px-4 py-2 shadow-lg">
+                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                                <span className="text-xs text-gray-300 font-medium">24/7 Recording</span>
                             </div>
                         </div>
                     </AnimatedGroup>
