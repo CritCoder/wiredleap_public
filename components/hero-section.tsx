@@ -1,162 +1,370 @@
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Zap, Users, ArrowRight, Menu } from "lucide-react"
-import Link from "next/link"
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+'use client'
+import React from 'react'
+import Link from 'next/link'
+import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { AnimatedGroup } from '@/components/ui/animated-group'
+import { cn } from '@/lib/utils'
 import { Component as AnimatedBackground } from "@/components/ui/raycast-animated-background"
+import { ThreeDModel } from "@/components/3d-model"
+import { CCTVModel } from "@/components/cctv-model"
+import { WebcamFeed } from "@/components/webcam-feed"
+import { Suspense } from "react"
 
-const navItems = [
-  { name: "Platform", href: "#platform" },
-  { name: "Solutions", href: "#solutions" },
-  { name: "Technology", href: "#technology" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+const transitionVariants = {
+    item: {
+        hidden: {
+            opacity: 0,
+            filter: 'blur(12px)',
+            y: 12,
+        },
+        visible: {
+            opacity: 1,
+            filter: 'blur(0px)',
+            y: 0,
+            transition: {
+                type: 'spring',
+                bounce: 0.3,
+                duration: 1.5,
+            },
+        },
+    },
+}
+
+const menuItems = [
+    { name: 'Features', href: '/features' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Docs', href: '/docs' },
+    { name: 'About', href: '/about' },
 ]
 
 export function HeroSection() {
-  return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
-      {/* Animated Background */}
-      <div className="absolute inset-0 z-0 w-full h-full grayscale opacity-80">
-        <AnimatedBackground />
-      </div>
-      
-      {/* Fallback Gradient Background */}
-      <div className="absolute inset-0 bg-black z-5" />
-      
-      {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
-      
-      {/* Fixed Navigation Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/20 backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Brand Logo */}
-            <div className="flex items-center">
-              <Link href="/" className="hover:opacity-80 transition-opacity">
-                <span className="text-2xl font-bold text-white font-alliance2 drop-shadow-lg">Wiredleap</span>
-              </Link>
-            </div>
+    return (
+        <>
+            <HeroHeader />
+            <main className="overflow-hidden bg-black">
+                {/* Animated Background */}
+                <div className="absolute inset-0 z-0 w-full h-full grayscale opacity-80">
+                    <AnimatedBackground />
+                </div>
+                
+                {/* Elegant gradient overlays */}
+                <div
+                    aria-hidden
+                    className="z-[2] absolute inset-0 pointer-events-none isolate opacity-30 contain-strict hidden lg:block">
+                    <div className="w-[35rem] h-[80rem] -translate-y-[350px] absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
+                    <div className="h-[80rem] absolute left-0 top-0 w-56 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
+                    <div className="h-[80rem] -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
+                </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-white/90 hover:text-white font-medium transition-all duration-200 relative group drop-shadow-md"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              ))}
+                <div className="absolute inset-0 bg-black/40 z-5" />
+                <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
+                
+                {/* Floating CCTV Camera - Surveillance Theme */}
+                <div className="absolute bottom-20 right-8 z-30 hidden lg:block">
+                    <AnimatedGroup
+                        variants={{
+                            container: {
+                                visible: {
+                                    transition: {
+                                        delayChildren: 2,
+                                    },
+                                },
+                            },
+                            item: {
+                                hidden: {
+                                    opacity: 0,
+                                    scale: 0.5,
+                                    y: -20,
+                                },
+                                visible: {
+                                    opacity: 1,
+                                    scale: 1,
+                                    y: 0,
+                                    transition: {
+                                        type: 'spring',
+                                        bounce: 0.4,
+                                        duration: 2.5,
+                                    },
+                                },
+                            },
+                        }}>
+                        <div className="relative w-32 h-32 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-3 shadow-2xl">
+                            {/* Subtle glow effect */}
+                            <div className="absolute inset-0 bg-gradient-radial from-red-500/10 via-transparent to-transparent rounded-2xl blur-xl opacity-60"></div>
+                            
+                            {/* Status indicator */}
+                            <div className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-lg shadow-red-500/50"></div>
+                            
+                            {/* Live Webcam Feed */}
+                            <div className="relative w-full h-full rounded-xl overflow-hidden">
+                                <WebcamFeed />
+                            </div>
+                            
+                            {/* Label */}
+                            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white/70 font-medium whitespace-nowrap">
+                                Live Monitor
+                            </div>
+                        </div>
+                    </AnimatedGroup>
+                </div>
+                
+                {/* Security Status Indicators */}
+                <div className="absolute bottom-20 left-8 z-30 hidden lg:block">
+                    <AnimatedGroup
+                        variants={{
+                            container: {
+                                visible: {
+                                    transition: {
+                                        delayChildren: 3,
+                                        staggerChildren: 0.2,
+                                    },
+                                },
+                            },
+                            item: {
+                                hidden: {
+                                    opacity: 0,
+                                    x: -20,
+                                },
+                                visible: {
+                                    opacity: 1,
+                                    x: 0,
+                                    transition: {
+                                        type: 'spring',
+                                        bounce: 0.3,
+                                        duration: 1.5,
+                                    },
+                                },
+                            },
+                        }}>
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-3 bg-green-500/10 backdrop-blur-xl rounded-lg border border-green-500/20 px-4 py-2 shadow-lg">
+                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                <span className="text-xs text-green-400 font-medium">System Active</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-blue-500/10 backdrop-blur-xl rounded-lg border border-blue-500/20 px-4 py-2 shadow-lg">
+                                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                                <span className="text-xs text-blue-400 font-medium">AI Monitoring</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-orange-500/10 backdrop-blur-xl rounded-lg border border-orange-500/20 px-4 py-2 shadow-lg">
+                                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                                <span className="text-xs text-orange-400 font-medium">24/7 Recording</span>
+                            </div>
+                        </div>
+                    </AnimatedGroup>
+                </div>
+                
+                {/* Scanning Lines Effect */}
+                <div className="absolute inset-0 z-20 pointer-events-none opacity-20">
+                    <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse"></div>
+                    <div className="absolute top-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse delay-1000"></div>
+                    <div className="absolute top-2/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse delay-2000"></div>
+                </div>
+                
+                <section>
+                    <div className="relative flex items-center justify-center min-h-screen pt-20">
+                        <div className="mx-auto max-w-7xl px-6">
+                            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center w-full">
+                                {/* Left Side - Content */}
+                                <div className="text-center sm:mx-auto lg:text-left lg:mr-auto lg:mt-0">
+                                    <AnimatedGroup variants={transitionVariants}>
+                                        <Link
+                                            href="#link"
+                                            className="hover:bg-background/10 bg-white/10 backdrop-blur-xl group mx-auto lg:mx-0 flex w-fit items-center gap-4 rounded-full border border-white/20 p-1 pl-4 shadow-md transition-all duration-300 text-white">
+                                            <span className="text-sm">📹 Advanced Surveillance Tech</span>
+                                            <span className="block h-4 w-0.5 border-l bg-white/20"></span>
+
+                                            <div className="bg-white/10 group-hover:bg-white/20 size-6 overflow-hidden rounded-full duration-500">
+                                                <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
+                                                    <span className="flex size-6">
+                                                        <ArrowRight className="m-auto size-3" />
+                                                    </span>
+                                                    <span className="flex size-6">
+                                                        <ArrowRight className="m-auto size-3" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </Link>
+                            
+                                        <h1
+                                            className="mt-8 max-w-4xl mx-auto lg:mx-0 text-balance text-5xl md:text-6xl lg:text-7xl lg:mt-16 font-alliance2 font-light text-white leading-[1.1]">
+                                            Next-Gen Surveillance Intelligence
+                                        </h1>
+                                        <p
+                                            className="mx-auto lg:mx-0 mt-8 max-w-2xl text-balance text-lg md:text-xl text-white/90 leading-relaxed">
+                                            Advanced AI-powered CCTV and surveillance solutions for enterprise security, threat detection, and intelligent monitoring at scale.
+                                        </p>
+                                    </AnimatedGroup>
+
+                                    <AnimatedGroup
+                                        variants={{
+                                            container: {
+                                                visible: {
+                                                    transition: {
+                                                        staggerChildren: 0.05,
+                                                        delayChildren: 0.75,
+                                                    },
+                                                },
+                                            },
+                                            ...transitionVariants,
+                                        }}
+                                        className="mt-12 flex flex-col items-center lg:items-start justify-center gap-2 md:flex-row lg:justify-start">
+                                        <div className="bg-white/10 backdrop-blur-xl rounded-[14px] border border-white/20 p-0.5">
+                                            <Button
+                                                asChild
+                                                size="lg"
+                                                className="rounded-xl px-8 py-4 text-base bg-white text-black hover:bg-white/90 font-medium">
+                                                <Link href="#link">
+                                                    <span className="text-nowrap">Request Security Demo</span>
+                                                </Link>
+                                            </Button>
+                                        </div>
+                                        <Button
+                                            asChild
+                                            size="lg"
+                                            variant="ghost"
+                                            className="h-12 rounded-xl px-8 py-4 text-base text-white hover:bg-white/10 font-medium">
+                                            <Link href="#link">
+                                                <span className="text-nowrap">View Solutions</span>
+                                            </Link>
+                                        </Button>
+                                    </AnimatedGroup>
+                                </div>
+
+                                {/* Right Side - 3D Model */}
+                                <AnimatedGroup
+                                    variants={{
+                                        container: {
+                                            visible: {
+                                                transition: {
+                                                    delayChildren: 0.5,
+                                                },
+                                            },
+                                        },
+                                        item: {
+                                            hidden: {
+                                                opacity: 0,
+                                                scale: 0.8,
+                                                y: 20,
+                                            },
+                                            visible: {
+                                                opacity: 1,
+                                                scale: 1,
+                                                y: 0,
+                                                transition: {
+                                                    type: 'spring',
+                                                    bounce: 0.3,
+                                                    duration: 2,
+                                                },
+                                            },
+                                        },
+                                    }}>
+                                    <div className="relative h-[500px] lg:h-[700px] flex items-center justify-center">
+                                        <div className="w-full h-full max-w-[600px] flex items-center justify-center relative">
+                                            
+                                            {/* 3D Model Container */}
+                                            <div className="relative w-full h-full">
+                                                <Suspense fallback={
+                                                    <div className="w-full h-full flex items-center justify-center text-white/50">
+                                                        <div className="text-center">
+                                                            <div className="animate-spin text-5xl mb-6">📹</div>
+                                                            <p className="text-lg">Loading Surveillance Model...</p>
+                                                        </div>
+                                                    </div>
+                                                }>
+                                                    <ThreeDModel />
+                                                </Suspense>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </AnimatedGroup>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </>
+    )
+}
+
+const HeroHeader = () => {
+    const [menuState, setMenuState] = React.useState(false)
+    const [isScrolled, setIsScrolled] = React.useState(false)
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+    
+    return (
+        <header>
+            <nav
+                data-state={menuState && 'active'}
+                className="fixed z-50 w-full px-2 group">
+                <div className={cn('mx-auto mt-2 w-full px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-black/50 rounded-2xl border border-white/20 backdrop-blur-lg lg:px-5')}>
+                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+                        <div className="flex w-full justify-between lg:w-auto">
+                            <Link
+                                href="/"
+                                aria-label="home"
+                                className="flex items-center space-x-2">
+                                <span className="text-2xl font-bold text-white font-alliance2 drop-shadow-lg">Wiredleap</span>
+                            </Link>
+
+                            <button
+                                onClick={() => setMenuState(!menuState)}
+                                aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
+                                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden">
+                                <Menu className="group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0 m-auto size-6 duration-200 text-white" />
+                                <X className="group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200 text-white" />
+                            </button>
+                        </div>
+
+                        <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+                            <ul className="flex gap-8 text-sm">
+                                {menuItems.map((item, index) => (
+                                    <li key={index}>
+                                        <Link
+                                            href={item.href}
+                                            className="text-white/70 hover:text-white block duration-150">
+                                            <span>{item.name}</span>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="bg-black/50 backdrop-blur-xl group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/20 p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none">
+                            <div className="lg:hidden">
+                                <ul className="space-y-6 text-base">
+                                    {menuItems.map((item, index) => (
+                                        <li key={index}>
+                                            <Link
+                                                href={item.href}
+                                                className="text-white/70 hover:text-white block duration-150">
+                                                <span>{item.name}</span>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                                <Button
+                                    asChild
+                                    size="sm"
+                                    className="bg-white text-black hover:bg-white/90">
+                                    <Link href="#">
+                                        <span>Get Started</span>
+                                    </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </nav>
-
-            {/* CTA Button */}
-            <div className="flex items-center gap-4">
-              <Button className="px-6 py-2.5 rounded-full font-medium transition-all duration-300 bg-white text-black hover:bg-white/90 drop-shadow-lg">
-                Get Started
-              </Button>
-              
-              {/* Mobile Menu */}
-              <Sheet>
-                <SheetTrigger asChild className="md:hidden">
-                  <Button variant="ghost" size="icon" className="text-white">
-                    <Menu className="h-5 w-5" />
-                    <span className="sr-only">Toggle navigation menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="bg-white/95 backdrop-blur-xl border-l border-white/20 w-80">
-                  <SheetHeader>
-                    <SheetTitle className="text-left text-lg font-semibold text-foreground font-alliance2">
-                      Menu
-                    </SheetTitle>
-                  </SheetHeader>
-                  <nav className="flex flex-col gap-4 mt-6">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="text-foreground/70 hover:text-foreground font-medium transition-colors duration-200 py-2 border-b border-white/10"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                    <Button className="bg-black text-white hover:bg-black/90 rounded-full font-medium transition-all duration-300 w-full mt-4">
-                      Get Started
-                    </Button>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
-      
-      {/* Hero Content */}
-      <div className="relative z-20 flex-1 flex items-center justify-center pt-20">
-        <div className="max-w-6xl mx-auto px-6 text-center text-white">
-          <div className="space-y-8">
-            {/* Badge */}
-            <Badge className="px-6 py-3 text-sm bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-300 drop-shadow-lg">
-              🚀 Now in Beta
-            </Badge>
-            
-            {/* Main Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-alliance2 font-light leading-tight drop-shadow-2xl">
-                The Future of Intelligence Operations
-              </h1>
-              <p className="text-xl md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed drop-shadow-xl">
-                Wiredleap delivers advanced AI-powered intelligence solutions for enterprise operations, 
-                threat detection, and strategic decision-making at scale.
-              </p>
-            </div>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-4 text-lg bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-300 group drop-shadow-lg">
-                Request Enterprise Demo
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-              <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-white/20 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 drop-shadow-lg">
-                Learn More
-              </Button>
-      </div>
-
-            {/* Trust Indicators */}
-            <div className="flex justify-center items-center gap-8 text-sm text-white/90">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 drop-shadow-md">
-                <CheckCircle className="w-4 h-4 text-white" />
-                <span>Fortune 500 Trusted</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 drop-shadow-md">
-                <Zap className="w-4 h-4 text-white" />
-                <span>99.9% Uptime</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 drop-shadow-md">
-                <Users className="w-4 h-4 text-white" />
-                <span>Enterprise Grade</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/80 z-20">
-        <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm drop-shadow-md">
-            <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+        </header>
+    )
 }
