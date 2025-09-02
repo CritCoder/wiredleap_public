@@ -9,10 +9,14 @@ export function ProblemStatement() {
           <h2 className="text-3xl md:text-4xl font-alliance2 font-light">
             The Intelligence Challenge
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            In today's complex threat landscape, organizations struggle to connect the dots across 
-            vast amounts of data, leading to missed threats and delayed responses.
-          </p>
+          <div className="space-y-2">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              The world is overwatched and under-informed
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Cameras watch, analysts watch, worry systems silo, emergencies don't wait.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -21,10 +25,9 @@ export function ProblemStatement() {
               <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <AlertTriangle className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Threat Detection Gaps</h3>
+              <h3 className="text-xl font-semibold mb-4">Data Overfeed</h3>
               <p className="text-muted-foreground">
-                Critical threats slip through the cracks when data sources aren't properly connected 
-                and analyzed in real-time.
+                1 billion plus cameras but less than 20% truly intelligent
               </p>
             </CardContent>
           </Card>
@@ -36,8 +39,7 @@ export function ProblemStatement() {
               </div>
               <h3 className="text-xl font-semibold mb-4">Slow Response Times</h3>
               <p className="text-muted-foreground">
-                Manual analysis and disconnected systems create delays that can mean the difference 
-                between prevention and disaster.
+                Manual analysis and disconnected systems coupled with human fatigue create delays that can mean the difference between prevention and disaster
               </p>
             </CardContent>
           </Card>

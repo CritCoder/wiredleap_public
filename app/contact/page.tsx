@@ -195,8 +195,8 @@ export default function ContactPage() {
                 <a href="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
                   → Pricing Plans
                 </a>
-                <a href="/features" className="block text-muted-foreground hover:text-foreground transition-colors">
-                  → Features Overview
+                <a href="/solutions" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  → Solutions Overview
                 </a>
                 <a href="/docs" className="block text-muted-foreground hover:text-foreground transition-colors">
                   → Documentation

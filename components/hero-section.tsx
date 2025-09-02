@@ -6,8 +6,7 @@ import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { cn } from '@/lib/utils'
 import { Component as AnimatedBackground } from "@/components/ui/raycast-animated-background"
-import { ThreeDModel } from "@/components/3d-model"
-import { CCTVModel } from "@/components/cctv-model"
+import { SurveillanceModel } from "@/components/surveillance-model"
 
 import { Suspense } from "react"
 
@@ -32,7 +31,7 @@ const transitionVariants = {
 }
 
 const menuItems = [
-    { name: 'Features', href: '/features' },
+    { name: 'Solutions', href: '/solutions' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Docs', href: '/docs' },
     { name: 'About', href: '/about' },
@@ -191,12 +190,13 @@ export function HeroSection() {
                             
                                         <h1
                                             className="mt-8 max-w-4xl mx-auto lg:mx-0 text-balance text-5xl md:text-6xl lg:text-7xl lg:mt-16 font-alliance2 font-light text-white leading-[1.1]">
-                                            Next-Gen Surveillance Intelligence
+                                            Next-Gen Signal Intelligence
                                         </h1>
                                         <p
                                             className="mx-auto lg:mx-0 mt-8 max-w-2xl text-balance text-lg md:text-xl text-white/90 leading-relaxed">
-                                            Advanced AI-powered CCTV and surveillance solutions for enterprise security, threat detection, and intelligent monitoring at scale.
-                                        </p>
+Every feed, every tweet, every comment. every whisper, intelligence that acts.                                        </p>
+<p
+                                            className="mx-auto lg:mx-0 mt-8 max-w-2xl text-balance text-lg md:text-xl text-white/90 leading-relaxed">From video to social to audio widely unifies every signal into a single real-time intelligence engine at scale.                                        </p>
                                     </AnimatedGroup>
 
                                     <AnimatedGroup
@@ -217,7 +217,7 @@ export function HeroSection() {
                                                 asChild
                                                 size="lg"
                                                 className="rounded-xl px-8 py-4 text-base bg-white text-black hover:bg-white/90 font-medium">
-                                                <Link href="#link">
+                                                <Link href="/get-started">
                                                     <span className="text-nowrap">Request Security Demo</span>
                                                 </Link>
                                             </Button>
@@ -227,7 +227,7 @@ export function HeroSection() {
                                             size="lg"
                                             variant="ghost"
                                             className="h-12 rounded-xl px-8 py-4 text-base text-white hover:bg-white/10 font-medium">
-                                            <Link href="#link">
+                                            <Link href="/solutions">
                                                 <span className="text-nowrap">View Solutions</span>
                                             </Link>
                                         </Button>
@@ -275,7 +275,13 @@ export function HeroSection() {
                                                         </div>
                                                     </div>
                                                 }>
-                                                    <ThreeDModel />
+                                                    <SurveillanceModel 
+                                                        scale={6}
+                                                        position={[0, -0.5, 0]}
+                                                        rotation={[0, 0, 0]}
+                                                        autoRotate={true}
+                                                        className="w-full h-full"
+                                                    />
                                                 </Suspense>
                                             </div>
                                         </div>
@@ -359,7 +365,7 @@ const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className="bg-white text-black hover:bg-white/90">
-                                    <Link href="#">
+                                    <Link href="/get-started">
                                         <span>Get Started</span>
                                     </Link>
                                 </Button>

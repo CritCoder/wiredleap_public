@@ -1,8 +1,8 @@
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 
-export default function FeaturesPage() {
-  const features = [
+export default function SolutionsPage() {
+  const solutions = [
     {
       title: "AI Code Reviews",
       description: "Get intelligent code suggestions and reviews in real-time as you write. Our AI analyzes your code for best practices, potential bugs, and optimization opportunities.",
@@ -70,26 +70,26 @@ export default function FeaturesPage() {
           
           <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Powerful</span> Features
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Complete</span> Solutions
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
-              Discover how Wiredleap's AI-powered tools can transform your development workflow and boost your productivity.
+              Comprehensive AI-powered solutions designed to revolutionize your development process and maximize team productivity.
             </p>
           </div>
         </section>
         
         <div className="max-w-7xl mx-auto px-6 py-16">
 
-        {/* Features Grid */}
+        {/* Solutions Grid */}
         <section className="mb-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {solutions.map((solution, index) => (
               <div key={index} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{feature.description}</p>
+                <div className="text-4xl mb-4">{solution.icon}</div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">{solution.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">{solution.description}</p>
                 <ul className="space-y-2">
-                  {feature.benefits.map((benefit, benefitIndex) => (
+                  {solution.benefits.map((benefit, benefitIndex) => (
                     <li key={benefitIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                       {benefit}
@@ -162,9 +162,9 @@ export default function FeaturesPage() {
               <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Join thousands of developers who are already using Wiredleap to build better software faster.
               </p>
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors">
-                Start Free Trial
-              </button>
+              <a href="/get-started" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+                Get Started Today
+              </a>
             </div>
           </section>
         </div>
