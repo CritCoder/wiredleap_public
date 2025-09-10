@@ -49,7 +49,7 @@ export default function TermsOfServicePage() {
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
             <h2 className="text-2xl font-semibold text-foreground mb-4">Agreement Overview</h2>
             <p className="text-muted-foreground leading-relaxed">
-              These Terms of Service ("Terms") govern your access to and use of Wiredleap Technologies, Inc.'s 
+              These Terms of Service ("Terms") govern your access to and use of Wiredleap Technology Pvt. Ltd.'s 
               ("Wiredleap," "we," "our," or "us") AI-powered intelligence platform and related services. 
               As a provider of enterprise-grade intelligence solutions, we maintain strict terms to ensure 
               compliance with national security requirements and industry regulations.

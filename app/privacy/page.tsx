@@ -80,7 +80,7 @@ export default function PrivacyPolicyPage() {
               <div>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Our Commitment</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Wiredleap Technologies, Inc. ("Wiredleap," "we," "our," or "us") is committed to protecting your privacy 
+                  Wiredleap Technology Pvt. Ltd.. ("Wiredleap," "we," "our," or "us") is committed to protecting your privacy 
                   and maintaining the security of your personal information. This Privacy Policy explains how we collect, 
                   use, protect, and share information when you use our AI-powered intelligence platform and services.
                 </p>

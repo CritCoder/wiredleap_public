@@ -104,7 +104,7 @@ export function FooterSection() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
               <div className="text-xs text-muted-foreground">
-                © 2025 Wiredleap Technologies, Inc. All rights reserved.
+                © 2025 Wiredleap Technology Pvt. Ltd. All rights reserved.
               </div>
               
               {/* Legal Links */}
@@ -133,9 +133,9 @@ export function FooterSection() {
             {/* Additional Legal Information */}
             <div className="mt-4 text-xs text-muted-foreground/70 leading-relaxed">
               <p className="text-center md:text-left">
-                Wiredleap is a registered trademark of Wiredleap Technologies, Inc. 
+                Wiredleap is a registered trademark of Wiredleap Technology Pvt. Ltd. 
                 This platform is designed for authorized government and enterprise use only. 
-                All data processing complies with SOC 2 Type II, ISO 27001, and FedRAMP standards. 
+                All data processing complies with ISO 9001 and ISO 27001 standards. 
                 For security inquiries, contact security@wiredleap.com. 
                 This service is not intended for personal or unauthorized use.
               </p>

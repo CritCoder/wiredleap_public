@@ -7,7 +7,7 @@ export default function DataProcessingAgreementPage() {
     {
       title: "Scope and Purpose",
       icon: Globe,
-      content: "This Data Processing Agreement (DPA) governs the processing of personal data by Wiredleap Technologies, Inc. on behalf of our enterprise customers. This agreement ensures compliance with GDPR, CCPA, and other applicable data protection regulations while maintaining the security and confidentiality of your data."
+      content: "This Data Processing Agreement (DPA) governs the processing of personal data by Wiredleap Technology Pvt. Ltd. on behalf of our enterprise customers."
     },
     {
       title: "Data Processing Activities",
@@ -55,12 +55,11 @@ export default function DataProcessingAgreementPage() {
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Legal Framework</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   This Data Processing Agreement ("DPA") forms an integral part of your service agreement with 
-                  Wiredleap Technologies, Inc. ("Wiredleap," "Processor") and governs the processing of personal 
+                  Wiredleap Technology Pvt. Ltd. ("Wiredleap," "Processor") and governs the processing of personal 
                   data performed by Wiredleap on behalf of the Customer ("Controller").
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  This DPA ensures compliance with applicable data protection regulations including the EU General 
-                  Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and other relevant 
+                  This DPA ensures compliance with applicable data protection regulations and other relevant 
                   privacy laws where our services are used.
                 </p>
               </div>
