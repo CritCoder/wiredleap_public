@@ -7,12 +7,16 @@ import { TestimonialGridSection } from "@/components/testimonial-grid-section"
 import { LargeTestimonial } from "@/components/large-testimonial"
 import { FAQSection } from "@/components/faq-section"
 import { FooterSection } from "@/components/footer-section"
+import { FullPageScroll } from "@/components/fullpage-scroll"
+import { PhotoShowcase } from "@/components/photo-showcase"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div id="home-scroll-container" className="dark h-screen overflow-y-auto snap-y snap-proximity bg-black text-white scroll-smooth">
+      <FullPageScroll />
       <main>
         <HeroSection />
+        <PhotoShowcase />
         <ProblemStatement />
         <BentoSection />
         <TechnologyStack />

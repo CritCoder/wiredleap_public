@@ -53,38 +53,38 @@ export default function PrivacyPolicyPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <section className="text-center mb-16 pt-20">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 font-alliance2">
+          <h1 className="text-4xl md:text-6xl font-alliance2 font-light text-white mb-6">
             Privacy Policy
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed mb-6">
             Your privacy and data security are fundamental to everything we do at Wiredleap.
           </p>
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-white/60">
             <strong>Last updated:</strong> January 1, 2025
           </div>
         </section>
 
         {/* Introduction */}
         <section className="mb-16">
-          <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Lock className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-white/10">
+                <Lock className="w-6 h-6 text-white/80" />
               </div>
               <div>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Our Commitment</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <h2 className="text-2xl font-semibold text-white mb-4">Our Commitment</h2>
+                <p className="text-white/70 leading-relaxed mb-4">
                   Wiredleap Technology Pvt. Ltd.. ("Wiredleap," "we," "our," or "us") is committed to protecting your privacy 
                   and maintaining the security of your personal information. This Privacy Policy explains how we collect, 
                   use, protect, and share information when you use our AI-powered intelligence platform and services.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-white/70 leading-relaxed">
                   As a provider of enterprise-grade intelligence solutions, we understand the critical importance of data 
                   security and compliance. This policy reflects our dedication to transparency and your control over your information.
                 </p>
@@ -119,14 +119,14 @@ export default function PrivacyPolicyPage() {
 
         {/* Data Sharing Section */}
         <section className="mb-16">
-          <div className="bg-card border border-border rounded-xl p-8">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center border border-white/10">
+                <Users className="w-5 h-5 text-white/80" />
               </div>
-              <h3 className="text-2xl font-semibold text-foreground">Data Sharing and Third Parties</h3>
+              <h3 className="text-2xl font-semibold text-white">Data Sharing and Third Parties</h3>
             </div>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-white/70 leading-relaxed">
               <p>
                 We do not sell, rent, or trade your personal information to third parties. We may share your information only in the following limited circumstances:
               </p>
@@ -154,35 +154,35 @@ export default function PrivacyPolicyPage() {
 
         {/* Your Rights Section */}
         <section className="mb-16">
-          <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Your Rights and Choices</h3>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-6">Your Rights and Choices</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <div className="bg-background rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Access & Portability</h4>
-                  <p className="text-sm text-muted-foreground">Request copies of your personal data in a portable format</p>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">Access & Portability</h4>
+                  <p className="text-sm text-white/70">Request copies of your personal data in a portable format</p>
                 </div>
-                <div className="bg-background rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Correction</h4>
-                  <p className="text-sm text-muted-foreground">Update or correct inaccurate personal information</p>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">Correction</h4>
+                  <p className="text-sm text-white/70">Update or correct inaccurate personal information</p>
                 </div>
-                <div className="bg-background rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Deletion</h4>
-                  <p className="text-sm text-muted-foreground">Request deletion of your account and associated data</p>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">Deletion</h4>
+                  <p className="text-sm text-white/70">Request deletion of your account and associated data</p>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="bg-background rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Processing Restriction</h4>
-                  <p className="text-sm text-muted-foreground">Limit how we process your personal information</p>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">Processing Restriction</h4>
+                  <p className="text-sm text-white/70">Limit how we process your personal information</p>
                 </div>
-                <div className="bg-background rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Objection</h4>
-                  <p className="text-sm text-muted-foreground">Object to certain processing of your personal data</p>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">Objection</h4>
+                  <p className="text-sm text-white/70">Object to certain processing of your personal data</p>
                 </div>
-                <div className="bg-background rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Opt-out</h4>
-                  <p className="text-sm text-muted-foreground">Unsubscribe from marketing communications</p>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">Opt-out</h4>
+                  <p className="text-sm text-white/70">Unsubscribe from marketing communications</p>
                 </div>
               </div>
             </div>
@@ -191,19 +191,19 @@ export default function PrivacyPolicyPage() {
 
         {/* Contact Section */}
         <section className="text-center">
-          <div className="bg-card border border-border rounded-2xl p-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-4">Questions About Privacy?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-4">Questions About Privacy?</h3>
+            <p className="text-white/70 mb-6 max-w-2xl mx-auto">
               If you have questions about this Privacy Policy or how we handle your data, please contact our Data Protection Officer.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="text-left bg-background rounded-lg p-4">
-                <strong className="text-foreground">Email:</strong>
-                <div className="text-muted-foreground">privacy@wiredleap.com</div>
+              <div className="text-left bg-white/5 border border-white/10 rounded-lg p-4">
+                <strong className="text-white">Email:</strong>
+                <div className="text-white/70">privacy@wiredleap.com</div>
               </div>
-              <div className="text-left bg-background rounded-lg p-4">
-                <strong className="text-foreground">Address:</strong>
-                <div className="text-muted-foreground">123 Innovation Drive<br/>San Francisco, CA 94105</div>
+              <div className="text-left bg-white/5 border border-white/10 rounded-lg p-4">
+                <strong className="text-white">Address:</strong>
+                <div className="text-white/70">123 Innovation Drive<br/>San Francisco, CA 94105</div>
               </div>
             </div>
           </div>

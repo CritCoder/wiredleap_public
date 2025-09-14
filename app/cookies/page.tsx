@@ -224,29 +224,29 @@ export default function CookiePolicyPage() {
 
         {/* Impact of Disabling Cookies */}
         <section className="mb-16">
-          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-8">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-8">
             <div className="flex items-start gap-4">
-              <Eye className="w-6 h-6 text-amber-600 mt-1 flex-shrink-0" />
+              <Eye className="w-6 h-6 text-white/80 mt-1 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">Impact of Disabling Cookies</h3>
-                <p className="text-muted-foreground mb-4">
+                <h3 className="text-xl font-semibold text-white mb-4">Impact of Disabling Cookies</h3>
+                <p className="text-white/70 mb-4">
                   While you have the right to disable cookies, doing so may affect your experience with our platform:
                 </p>
-                <ul className="space-y-2 text-muted-foreground">
+                <ul className="space-y-2 text-white/70">
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-600 mt-1">•</span>
+                    <span className="text-white/70 mt-1">•</span>
                     <span>You may need to log in repeatedly</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-600 mt-1">•</span>
+                    <span className="text-white/70 mt-1">•</span>
                     <span>Your preferences and settings may not be saved</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-600 mt-1">•</span>
+                    <span className="text-white/70 mt-1">•</span>
                     <span>Some features may not function properly</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-600 mt-1">•</span>
+                    <span className="text-white/70 mt-1">•</span>
                     <span>You may see less relevant content and recommendations</span>
                   </li>
                 </ul>
@@ -257,24 +257,24 @@ export default function CookiePolicyPage() {
 
         {/* Updates to Policy */}
         <section className="mb-16">
-          <div className="bg-card border border-border rounded-xl p-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Updates to This Policy</h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-6">Updates to This Policy</h3>
+            <div className="space-y-4 text-white/70 leading-relaxed">
               <p>
                 We may update this Cookie Policy from time to time to reflect changes in our practices, 
                 technologies, or legal requirements. When we make significant changes, we will:
               </p>
               <ul className="space-y-2 ml-4">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-white/70 mt-1">•</span>
                   <span>Notify you through email or platform notifications</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-white/70 mt-1">•</span>
                   <span>Update the "Last updated" date at the top of this policy</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-white/70 mt-1">•</span>
                   <span>Request your consent for new cookie categories if required</span>
                 </li>
               </ul>
@@ -284,19 +284,19 @@ export default function CookiePolicyPage() {
 
         {/* Contact Section */}
         <section className="text-center">
-          <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-4">Questions About Cookies?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-4">Questions About Cookies?</h3>
+            <p className="text-white/70 mb-6 max-w-2xl mx-auto">
               If you have questions about our use of cookies or need help managing your preferences, please contact us.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="text-left bg-background rounded-lg p-4">
-                <strong className="text-foreground">Email:</strong>
-                <div className="text-muted-foreground">privacy@wiredleap.com</div>
+              <div className="text-left bg-white/5 border border-white/10 rounded-lg p-4">
+                <strong className="text-white">Email:</strong>
+                <div className="text-white/70">privacy@wiredleap.com</div>
               </div>
-              <div className="text-left bg-background rounded-lg p-4">
-                <strong className="text-foreground">Support:</strong>
-                <div className="text-muted-foreground">support@wiredleap.com</div>
+              <div className="text-left bg-white/5 border border-white/10 rounded-lg p-4">
+                <strong className="text-white">Support:</strong>
+                <div className="text-white/70">support@wiredleap.com</div>
               </div>
             </div>
           </div>

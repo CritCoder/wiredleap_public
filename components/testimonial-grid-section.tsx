@@ -70,13 +70,13 @@ export function TestimonialGridSection() {
   ]
 
   return (
-    <section className="w-full py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section data-snap-section className="snap-start w-full min-h-screen bg-black text-white grid place-items-center">
+      <div className="max-w-6xl mx-auto px-6 py-8 w-full">
         <div className="text-center space-y-8 mb-16">
           <h2 className="text-3xl md:text-4xl font-alliance2 font-light">
             Trusted by Intelligence Leaders
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
             Hear how security professionals and intelligence teams achieve unprecedented threat detection 
             and operational efficiency using Wiredleap's advanced AI-powered platform.
           </p>
@@ -84,14 +84,14 @@ export function TestimonialGridSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border border-border/50">
+            <Card key={index} className="bg-white/5 border border-white/10">
               <CardContent className="p-6">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-6 italic">
+                <p className="text-white/70 mb-6 italic">
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center gap-3">
@@ -101,7 +101,7 @@ export function TestimonialGridSection() {
                   </Avatar>
                   <div>
                     <div className="font-semibold text-sm">{testimonial.author}</div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-xs text-white/70">
                       {testimonial.role}, {testimonial.company}
                     </div>
                   </div>
@@ -112,18 +112,18 @@ export function TestimonialGridSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <Card className="border border-border/50 max-w-4xl mx-auto">
+          <Card className="bg-white/5 border border-white/10 max-w-4xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold mb-4">Join the Intelligence Revolution</h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-white/70 mb-6">
                 See how Wiredleap is transforming security operations for government agencies, 
                 Fortune 500 companies, and critical infrastructure organizations worldwide.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Badge variant="outline">Government Approved</Badge>
-                <Badge variant="outline">Fortune 500 Trusted</Badge>
-                <Badge variant="outline">Enterprise Grade</Badge>
-                <Badge variant="outline">Mission Critical</Badge>
+                <Badge variant="outline" className="border-white/20 text-white/80">Government Approved</Badge>
+                <Badge variant="outline" className="border-white/20 text-white/80">Fortune 500 Trusted</Badge>
+                <Badge variant="outline" className="border-white/20 text-white/80">Enterprise Grade</Badge>
+                <Badge variant="outline" className="border-white/20 text-white/80">Mission Critical</Badge>
               </div>
             </CardContent>
           </Card>

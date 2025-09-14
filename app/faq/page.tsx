@@ -12,15 +12,15 @@ export default function FAQPage() {
       questions: [
         {
           question: "What is Wiredleap and who is it for?",
-          answer: "Wiredleap is an AI-powered development platform designed for developers, teams, and organizations who want to accelerate their coding workflow. It's perfect for both individual developers looking to enhance their productivity and teams seeking seamless collaboration tools."
+          answer: "Wiredleap is an AI‑powered surveillance intelligence platform for public safety agencies, enterprises, and critical infrastructure operators. It delivers real‑time monitoring, threat detection, and incident response across cameras and sensors."
         },
         {
-          question: "How does Wiredleap's AI code review work?",
-          answer: "Our AI analyzes your code in real-time, providing intelligent suggestions for improvements, catching potential bugs, and ensuring best practices. It learns from your coding patterns and adapts to your team's standards, making code reviews faster and more consistent."
+          question: "How does AI threat detection work?",
+          answer: "Our models analyze live video to detect people, vehicles, and anomalous behavior. You can define zones, rules, and dwell times to trigger alerts, which are enriched with context and routed to the right teams."
         },
         {
-          question: "What programming languages does Wiredleap support?",
-          answer: "Wiredleap supports all major programming languages including JavaScript, TypeScript, Python, Java, C++, Go, Rust, and many more. Our AI models are trained on a diverse range of codebases to provide accurate suggestions across different languages and frameworks."
+          question: "What data sources do you support?",
+          answer: "We support RTSP and ONVIF cameras, recorded video, drones and mobile feeds, as well as sensor events via MQTT/REST. Integrations include SIEM/VMS and alerting tools."
         }
       ]
     },
@@ -28,50 +28,34 @@ export default function FAQPage() {
       title: "Integrations & Setup",
       questions: [
         {
-          question: "Can I integrate Wiredleap with my existing tools?",
-          answer: "Yes! Wiredleap offers one-click integrations with popular development tools including GitHub, GitLab, VS Code, Slack, and many more. Our MCP connectivity allows you to easily manage and configure server access across your entire development stack."
+          question: "Can I integrate Wiredleap with our existing tools?",
+          answer: "Yes. We offer guided integrations for Splunk, QRadar, Genetec, Milestone, PagerDuty, Slack, and more. Open protocols like RTSP, ONVIF, MQTT, webhooks, and syslog are supported."
         },
         {
-          question: "How long does it take to set up Wiredleap?",
-          answer: "Setup takes just a few minutes. Install our CLI or VS Code extension, connect your repository, and you're ready to start coding with AI assistance. No complex configuration required."
+          question: "How long does deployment take?",
+          answer: "Typical deployments take 2–4 weeks depending on camera fleet size and integrations. Edge gateways and bulk onboarding tools accelerate large rollouts."
         },
         {
-          question: "Do I need to change my existing workflow?",
-          answer: "No, Wiredleap integrates seamlessly with your existing workflow. You can continue using your preferred tools and processes while getting AI assistance and real-time previews."
+          question: "Do we need to change our workflow?",
+          answer: "No. Wiredleap integrates with your existing SIEM/VMS and notification systems. Operators use familiar views while gaining real‑time AI alerts."
         }
       ]
     },
-    {
-      title: "Pricing & Plans",
-      questions: [
-        {
-          question: "What's included in the free plan?",
-          answer: "The free plan includes real-time code suggestions, basic integrations, single MCP server connection, up to 2 AI coding agents, and Vercel deployments with Wiredleap branding. It's perfect for individual developers getting started."
-        },
-        {
-          question: "Can I upgrade or downgrade my plan anytime?",
-          answer: "Yes, you can change your plan at any time. Upgrades take effect immediately, and downgrades apply at the next billing cycle. We also offer a 30-day money-back guarantee."
-        },
-        {
-          question: "Do you offer discounts for teams?",
-          answer: "Yes, we offer volume discounts for teams of 5 or more users. Contact our sales team for custom pricing and enterprise features."
-        }
-      ]
-    },
+    // Pricing & Plans category removed
     {
       title: "Security & Privacy",
       questions: [
         {
-          question: "Is my code secure with Wiredleap?",
-          answer: "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your code never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers."
+          question: "Is our video data secure?",
+          answer: "Yes. We use end‑to‑end encryption in transit and at rest, with RBAC/SSO and audit logs. On‑prem and air‑gapped deployments are available for sensitive environments."
         },
         {
-          question: "Does Wiredleap store my code?",
-          answer: "No, Wiredleap does not store your source code. We process code in memory for AI analysis and discard it immediately. We only store metadata and configuration settings."
+          question: "Do you store our video?",
+          answer: "By default we store event metadata and snapshots as configured. Full video retention is optional and policy‑driven based on your requirements."
         },
         {
-          question: "What compliance standards does Wiredleap meet?",
-          answer: "Wiredleap is SOC 2 Type II compliant and follows GDPR guidelines. We're also working towards additional compliance certifications based on customer needs."
+          question: "What compliance standards do you meet?",
+          answer: "Wiredleap follows SOC 2 and GDPR requirements and aligns to ISO 27001 practices. Additional certifications can be supported for enterprise and government deployments."
         }
       ]
     },
@@ -79,16 +63,16 @@ export default function FAQPage() {
       title: "Technical",
       questions: [
         {
-          question: "How do parallel coding agents work?",
-          answer: "Our parallel coding agents can work on different parts of your codebase simultaneously, solving complex problems faster than traditional single-threaded approaches. You can launch multiple agents to handle different tasks like bug fixes, feature development, and code optimization concurrently."
+          question: "How does multi‑stream processing scale?",
+          answer: "We parallelize ingest and inference across nodes with edge acceleration where needed, maintaining low latency and graceful degradation under load."
         },
         {
-          question: "What's the difference between real-time previews and traditional builds?",
-          answer: "Real-time previews show your changes instantly without waiting for full builds or deployments. They use intelligent caching and incremental updates to provide immediate feedback, making development much faster and more interactive."
+          question: "What’s the difference between real‑time and historical analytics?",
+          answer: "Real‑time monitoring powers immediate alerts and dashboards, while historical analytics provide trend insights, heatmaps, and model tuning."
         },
         {
-          question: "Can I use Wiredleap offline?",
-          answer: "Some features work offline, but for the full AI-powered experience, an internet connection is required. We're working on more offline capabilities for future releases."
+          question: "Can Wiredleap run offline at the edge?",
+          answer: "Yes. Edge gateways process streams locally and sync events when connectivity is restored, enabling remote or bandwidth‑constrained sites."
         }
       ]
     }
@@ -104,9 +88,7 @@ export default function FAQPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Everything you need to know about Wiredleap and how it can transform your development workflow.
-          </p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Everything you need to know about Wiredleap and how it transforms security operations.</p>
         </section>
 
         {/* FAQ Categories */}
@@ -171,4 +153,3 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
     </div>
   )
 }
-

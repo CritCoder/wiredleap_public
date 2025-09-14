@@ -18,6 +18,8 @@ import {
 
 export function TechnologyStack() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const isDraggingRef = useRef(false)
+  const enableAutoAdvance = false // Performance: disable auto-advance by default
 
   const technologies = [
     {
@@ -102,6 +104,7 @@ export function TechnologyStack() {
 
     const handleMouseDown = (e: MouseEvent) => {
       isScrolling = true
+      isDraggingRef.current = true
       startX = e.pageX - scrollContainer.offsetLeft
       scrollLeft = scrollContainer.scrollLeft
       scrollContainer.style.cursor = 'grabbing'
@@ -110,12 +113,14 @@ export function TechnologyStack() {
 
     const handleMouseLeave = () => {
       isScrolling = false
+      isDraggingRef.current = false
       scrollContainer.style.cursor = 'grab'
       scrollContainer.style.userSelect = 'auto'
     }
 
     const handleMouseUp = () => {
       isScrolling = false
+      isDraggingRef.current = false
       scrollContainer.style.cursor = 'grab'
       scrollContainer.style.userSelect = 'auto'
     }
@@ -141,14 +146,45 @@ export function TechnologyStack() {
     }
   }, [])
 
+  // Auto-advance the horizontal scroller every 3 seconds (disabled for performance)
+  useEffect(() => {
+    if (!enableAutoAdvance) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const container = scrollContainerRef.current
+    if (!container) return
+
+    const getCards = () => Array.from(container.querySelectorAll<HTMLElement>('[data-tech-card]'))
+
+    const tick = () => {
+      if (isDraggingRef.current) return
+      const cards = getCards()
+      if (cards.length === 0) return
+      // Find nearest current index
+      const currentLeft = container.scrollLeft
+      let nearestIndex = 0
+      let nearestDist = Number.POSITIVE_INFINITY
+      cards.forEach((el, i) => {
+        const d = Math.abs(el.offsetLeft - currentLeft)
+        if (d < nearestDist) { nearestDist = d; nearestIndex = i }
+      })
+      let next = nearestIndex + 1
+      if (next >= cards.length) next = 0
+      const target = cards[next]
+      container.scrollTo({ left: target.offsetLeft, behavior: 'smooth' })
+    }
+
+    const id = window.setInterval(tick, 3000)
+    return () => window.clearInterval(id)
+  }, [])
+
   return (
-    <section className="w-full py-20 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center space-y-8 mb-16">
-          <h2 className="text-3xl md:text-4xl font-alliance2 font-light">
+    <section data-snap-section className="snap-start w-full min-h-screen bg-black text-white grid place-items-center">
+      <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="text-center space-y-8 mb-16 flex flex-col items-center">
+          <h2 className="text-3xl md:text-4xl font-alliance2 font-light mx-auto">
             Enterprise-Grade Technology Stack
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
             Built on cutting-edge technologies designed for mission-critical intelligence operations 
             and enterprise security requirements.
           </p>
@@ -158,8 +194,8 @@ export function TechnologyStack() {
       {/* Full Width Horizontal Scroll Container */}
       <div className="relative w-full">
         {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
         {/* Scroll Container - Full Width */}
         <div 
@@ -174,22 +210,23 @@ export function TechnologyStack() {
           {technologies.map((tech, index) => (
             <Card 
               key={tech.name} 
-              className="border border-border/50 w-80 flex-shrink-0 scroll-snap-start hover:border-primary/30 transition-colors duration-200"
+              data-tech-card
+              className="bg-white/5 border border-white/10 w-80 flex-shrink-0 scroll-snap-start hover:border-white/30 transition-colors duration-200"
               style={{ 
                 minWidth: '320px'
               }}
             >
               <CardContent className="p-6 h-full">
                 <div className="flex items-start justify-between mb-4">
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${tech.color} transition-colors duration-200`}>
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 bg-white/10 text-white` }>
                     <tech.icon className="w-5 h-5" />
                   </div>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs border-white/20 text-white/80">
                     {tech.category}
                   </Badge>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{tech.name}</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white/70 line-clamp-3 min-h-[3.75rem]">
                   {tech.description}
                 </p>
               </CardContent>
@@ -198,14 +235,7 @@ export function TechnologyStack() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="mt-8 text-center">
-        <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-          <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-          <span>Drag to explore our technology stack</span>
-          <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-        </div>
-      </div>
+      {/* Scroll Indicator removed per request */}
 
       <style jsx>{`
         .scrollbar-hide {

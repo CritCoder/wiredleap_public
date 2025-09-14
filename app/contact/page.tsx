@@ -26,9 +26,7 @@ export default function ContactPage() {
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
               Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Touch</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
-              Have questions about Wiredleap? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-            </p>
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">Have questions about Wiredleap’s surveillance intelligence platform? Send us a message and we’ll get back to you shortly.</p>
           </div>
         </section>
         
@@ -192,9 +190,7 @@ export default function ContactPage() {
                 <a href="/faq" className="block text-muted-foreground hover:text-foreground transition-colors">
                   → Frequently Asked Questions
                 </a>
-                <a href="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
-                  → Pricing Plans
-                </a>
+                {/* Pricing link removed */}
                 <a href="/solutions" className="block text-muted-foreground hover:text-foreground transition-colors">
                   → Solutions Overview
                 </a>
@@ -210,9 +206,7 @@ export default function ContactPage() {
         <section className="mb-16">
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-semibold text-foreground mb-4">Visit Our Office</h2>
-            <p className="text-muted-foreground mb-6">
-              We're located in the heart of San Francisco's tech district. Drop by for a coffee and a chat about AI-powered development!
-            </p>
+            <p className="text-muted-foreground mb-6">We’re located in the heart of San Francisco’s tech district. Drop by for a coffee and a chat about AI‑powered security and monitoring.</p>
             <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
               <p className="text-muted-foreground">Interactive Map Coming Soon</p>
             </div>
@@ -225,4 +219,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

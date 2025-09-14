@@ -6,17 +6,40 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-6 py-24">
-        {/* Hero Section */}
-        <section className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            About Wiredleap
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We're building the future of AI-powered development, where every developer can harness the power of intelligent coding assistance.
-          </p>
+      <main>
+        {/* Hero Section (match Docs hero) */}
+        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-black/40 z-5" />
+          <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
+
+          {/* Code-themed animated elements (monochrome) */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 text-6xl text-white/30 animate-pulse">{`</>`}</div>
+            <div className="absolute top-1/3 right-20 text-4xl text-white/30 animate-bounce" style={{animationDelay: '1s'}}>{`{}`}</div>
+            <div className="absolute bottom-1/3 left-1/4 text-5xl text-white/30 animate-pulse" style={{animationDelay: '2s'}}>[]</div>
+            <div className="absolute top-1/2 right-1/3 text-3xl text-white/30 animate-bounce" style={{animationDelay: '0.5s'}}>()</div>
+          </div>
+
+          {/* Floating code blocks (monochrome) */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-16 right-10 bg-gray-800 rounded-lg p-3 text-xs text-white/70 font-mono animate-float">
+              console.log('Hello');
+            </div>
+            <div className="absolute bottom-20 left-16 bg-gray-800 rounded-lg p-3 text-xs text-white/70 font-mono animate-float" style={{animationDelay: '1.5s'}}>
+              function() {`{}`}
+            </div>
+          </div>
+
+          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">About Wiredleap</h1>
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
+              We're building the future of AI-powered development, where every developer can harness the power of intelligent coding assistance.
+            </p>
+          </div>
         </section>
 
+        <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Mission Section */}
         <section className="mb-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -118,10 +141,10 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       <FooterSection />
     </div>
   )
 }
-
