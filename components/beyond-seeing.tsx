@@ -11,7 +11,6 @@ export function BeyondSeeing() {
           predict the future.
         </p>
       </div>
-
       <div className="grid md:grid-cols-2 gap-8">
         <Card className="p-8">
           <div className="flex items-center gap-3 mb-6">
